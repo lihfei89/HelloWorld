@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.timeline {
+    width: 630px;
+    position: absolute;
+    top: 35px;
+    left: 20px;
+    border: 1px solid #E2E2E2;
+}	
+
+.num_box {
+    width: 60px;
+    height: 60px;
+    line-height: 30px;
+    display: inline-block;
+    margin-right: 20px;
+    border: 0px solid red;
+    cursor: pointer;
+}
+
+.num_box p {
+    display: inline;
+    margin-left: 14px;
+    width: 100%;
+    color: #5786D6;
+    font-size: 14px;
+    font-family: "å¾®è½¯é›…é»‘";
+}
+
+.timeboxc {
+    width: 20px;
+    height: 20px;
+    margin: 0 auto;
+    margin-top: 15px;
+    border-radius: 50%;
+    position: relative;
+    background-color: #ffffff;
+    border: 2px solid #93BDF0;
+}
+
+.subbox {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: #0FDC1D;
+}
+
+.subyear{
+  text-shadow:#ffffff 1px 0 0,#ffffff 0 1px 0,#ffffff -1px 0 0,#ffffff 0 -1px 0;
+  -webkit-text-shadow:#ffffff 1px 0 0,#ffffff 0 1px 0,#ffffff -1px 0 0,#ffffff 0 -1px 0;
+  -moz-text-shadow:#ffffff 1px 0 0,#ffffff 0 1px 0,#ffffff -1px 0 0,#ffffff 0 -1px 0;
+  *filter: Glow(color=#ffffff, strength=1);
+}		
+		</style>
+		<script type="text/javascript" src="JS/jquery-1.9.1.min.js" ></script>
+		<script>
+			 function registerEvent() {
+            $(".num_box").click(function() {
+                var nodeArray = $(".subbox");
+                $(".num_box").removeClass("active");
+                for (i = 0; i < nodeArray.length; i++) {
+                    nodeArray[i].style.display = "none"
+                }
+                var currentOBJ = $(this)[0].children[0].children[0];
+                currentOBJ.style.display = "block";
+                $(this).addClass("active");
+            })
+       }	
+	   window.onload=function(){registerEvent();}		
+		</script>
+	</head>
+	<body>
+		<div class="timeline"></div>
+		<div class="outbox">
+			<div class="num_box">
+				<div class="timeboxc">
+					<div class="subbox" style="display: none;"></div>
+				</div>
+				<p class="subyear">2012</p>
+			</div>
+			<div class="num_box">
+				<div class="timeboxc">
+					<div class="subbox" style="display: none;"></div>
+				</div>
+				<p class="subyear">2013</p>
+			</div>
+			<div class="num_box">
+				<div class="timeboxc">
+					<div class="subbox" style="display: none;"></div>
+				</div>
+				<p class="subyear">2014</p>
+			</div>
+			<div class="num_box active">
+				<div class="timeboxc">
+					<div class="subbox"></div>
+				</div>
+				<p class="subyear">2015</p>
+			</div>
+		</div>
+	</body>
+</html>
